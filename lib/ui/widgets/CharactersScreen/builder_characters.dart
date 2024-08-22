@@ -57,7 +57,22 @@ class BuilderCharacters extends StatelessWidget {
               return GridCharacters(
                   items: resultCharacters,
                   itemBuilder: (BuildContext context, int index) {
-                    return MyCharacter(character: resultCharacters[index]);
+                    return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailsCharacter(
+                                character: resultCharacters[index],
+                              ),
+                            ),
+                          );
+                          print("tap");
+                        },
+                        child: Hero(
+                            tag: resultCharacters[index].id,
+                            child:
+                                MyCharacter(character: resultCharacters[index])));
                   });
             }
             return Container();
