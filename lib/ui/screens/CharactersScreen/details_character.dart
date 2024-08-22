@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/data/models/character.dart';
 import 'package:rickandmorty/others/constants/my_colors.dart';
@@ -14,14 +15,25 @@ class DetailsCharacter extends StatelessWidget {
       stretch: true,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
-        title: Text(
-          character.name,
-          style: TextStyle(
-            color: MyColors.blackColorBody,
-            fontWeight: FontWeight.bold,
-          ),
-          textAlign: TextAlign.center,
+        title: DefaultTextStyle(
+    style: const TextStyle(
+      fontSize: 25,
+      color: MyColors.blackColorBody,
+      shadows: [
+        Shadow(
+          blurRadius: 7.0,
+          color: MyColors.motardColor,
+          offset: Offset(0, 0),
         ),
+      ],
+    ),
+    child: AnimatedTextKit(
+      repeatForever: true,
+      animatedTexts: [
+        FlickerAnimatedText(character.name),
+      ],
+    ),
+  ),
         background: Hero(
           tag: character.id,
           child: FadeInImage.assetNetwork(
