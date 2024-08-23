@@ -23,3 +23,5 @@ The project is designed with a multi-layered architecture, where data is managed
 ![Image 10](assets/images/i10.PNG)
 
 ![Image 11](assets/images/i11.PNG)
+
+![Image 12](assets/images/i12.PNG)
